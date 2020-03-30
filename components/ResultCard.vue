@@ -17,22 +17,14 @@
         </b>
 
         <p>This alert will dismiss after {{ dismissCountDown }} seconds...</p>
-        <b-progress
-          variant="warning"
-          :max="dismissSecs"
-          :value="dismissCountDown"
-          height="4px"
-        ></b-progress>
+        <b-progress variant="warning" :max="dismissSecs" :value="dismissCountDown" height="4px"></b-progress>
       </b-alert>
     </b-card-text>
 
     <div v-show="showResult">
       <div v-if="score == -1" class="text-center">
         <div>
-          <img
-            :src="require('~/assets/svg/010-coronavirus.svg')"
-            width="100px"
-          />
+          <img :src="require('~/assets/svg/010-coronavirus.svg')" width="100px" />
         </div>
 
         <div class="mt-3">
@@ -44,9 +36,7 @@
 
           <div class="text-center">
             <b-button variant="dark" @click="backToHome">No</b-button>
-            <b-button variant="primary" @click="openFormToShare"
-              >Yes of course</b-button
-            >
+            <b-button variant="primary" @click="openFormToShare">Yes of course</b-button>
           </div>
         </div>
       </div>
@@ -58,8 +48,7 @@
         </div>
 
         <div class="mt-3">
-          <h3>You are healthy. you aren't showing any symptoms of Covid-19.</h3>
-          Don't forget to :
+          <h3>You are healthy. you aren't showing any symptoms of Covid-19.</h3>Don't forget to :
           <ul>
             <li>Stay at home</li>
             <li>Avoid close contact to other people</li>
@@ -69,9 +58,7 @@
             <li>Take 500 mg of paracetamol if you have a fever</li>
           </ul>
           <div class="text-center">
-            <b-button variant="primary" @click="backToHome"
-              >Back to home page</b-button
-            >
+            <b-button variant="primary" @click="backToHome">Back to home page</b-button>
           </div>
         </div>
       </div>
@@ -90,9 +77,7 @@
             eating enough and resting
           </p>
           <div class="text-center">
-            <b-button variant="primary" @click="backToHome"
-              >Back to home</b-button
-            >
+            <b-button variant="primary" @click="backToHome">Back to home</b-button>
           </div>
         </div>
       </div>
@@ -117,14 +102,13 @@
               <li>Wash your hands with soap and water</li>
               <li>Take 500 mg of paracetamol if you have a fever</li>
             </ul>
-
+            <strong>
+              Are you want to tell the comunity ? if yes, i will help to share the
+              social media, and you can get so much love and support
+            </strong>
             <div class="text-center">
-              <b-button variant="dark" @click="backToHome"
-                >Back to home</b-button
-              >
-              <b-button variant="primary" @click="openFormToShare"
-                >Yes of course</b-button
-              >
+              <b-button variant="dark" @click="backToHome">Back to home</b-button>
+              <b-button variant="primary" @click="openFormToShare">Yes of course</b-button>
             </div>
           </div>
         </div>
