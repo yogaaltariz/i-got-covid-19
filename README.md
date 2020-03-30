@@ -19,4 +19,6 @@ $ npm run start
 $ npm run generate
 ```
 
+## Twitter API
+Add file .env and fill with the Key you get from Twitter Developer
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
