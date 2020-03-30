@@ -51,7 +51,9 @@ async function start() {
         text: 'what result you got from the test ?',
         yesNext: 0,
         noNext: 2,
-        score: -1
+        score: -1,
+        yesAnswerText: 'Positive fo covid-19',
+        noAnswerText: 'Negative for covid-19'
       },
       {
         text:

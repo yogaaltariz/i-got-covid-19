@@ -24,7 +24,7 @@
             >www.flaticon.com</a
           >
         </div>
-        <div>© 2020 HCI - E</div>
+        <div>© 2020 IGotCovid-19</div>
       </b-container>
     </footer>
   </div>
@@ -32,7 +32,7 @@
 
 <style>
 body {
-  font-family: 'sen';
+  font-family: 'Sen', sans-serif;
 }
 footer {
   background: url('~assets/wave.svg');

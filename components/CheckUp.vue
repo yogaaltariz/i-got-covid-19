@@ -7,8 +7,22 @@
       <strong>{{ question.text }}</strong>
     </b-card-text>
 
-    <b-button class="mx-1" variant="dark" @click="no">No</b-button>
-    <b-button class="mx-1" variant="primary" @click="yes">Yes</b-button>
+    <b-button
+      v-if="question.noAnswerText"
+      class="mx-1"
+      variant="dark"
+      @click="no"
+      >{{ question.noAnswerText }}</b-button
+    >
+    <b-button v-else class="mx-1" variant="dark" @click="no">No</b-button>
+    <b-button
+      v-if="question.yesAnswerText"
+      class="mx-1"
+      variant="primary"
+      @click="yes"
+      >{{ question.yesAnswerText }}</b-button
+    >
+    <b-button v-else class="mx-1" variant="primary" @click="yes">Yes</b-button>
   </b-card>
 </template>
 

@@ -9,7 +9,12 @@
         <b-form-input v-model="form.name" required></b-form-input>
       </b-form-group>
       <b-form-group label="How old you ?">
-        <b-form-input v-model="form.age" min="0" required></b-form-input>
+        <b-form-input
+          v-model="form.age"
+          type="number"
+          min="0"
+          required
+        ></b-form-input>
       </b-form-group>
       <b-form-group label="Where do you from ?">
         <v-select
@@ -85,18 +90,25 @@ export default {
   },
   methods: {
     getLocationUser() {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          this.form.location = `https://www.google.com/maps/@${position.coords.latitude},${position.coords.longitude}`
-          document
-            .querySelector('#locationInput')
-            .querySelector('.text-muted').innerHTML =
-            'Your location recorded 👍'
-        },
-        (error) => {
-          alert(error.message)
-        }
-      )
+      if (navigator.userAgent.includes('Firefox')) {
+        axios
+          .get('https://location.services.mozilla.com/v1/geolocate?key=test')
+          .then((response) => {
+            this.form.location = `https://www.google.com/maps/@${response.data.location.lat},${response.data.location.lng}`
+          })
+      } else {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.form.location = `https://www.google.com/maps/@${position.coords.latitude},${position.coords.longitude}`
+          },
+          (error) => {
+            alert(error.message)
+          }
+        )
+      }
+      document
+        .querySelector('#locationInput')
+        .querySelector('.text-muted').innerHTML = 'Your location recorded 👍'
     },
     onSubmit(e) {
       e.preventDefault()
