@@ -1,28 +1,30 @@
 <template>
   <div>
-    
-    <nuxt />
-
-    <!-- <footer>
-      <div>
-        Icons made by
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from
-        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-      </div>
-    </footer>-->
-
-    <footer class="footer bg-light text-dark border-0 shadow p-2">
+    <b-navbar
+      variant="light"
+      class="shadow-sm justify-content-center"
+      type="dark"
+    >
+      <b-navbar-brand href="#">
+        <img :src="require('~/assets/png/logo.png')" alt="logo" width="120" />
+      </b-navbar-brand>
+    </b-navbar>
+    <div class="mt-2">
+      <nuxt />
+    </div>
+    <footer class="text-white">
       <b-container>
-        <b-row>
-          <b-col>
-            Icons made by
-            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from
-            <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-          </b-col>
-          <b-col>
-            © Copyright 2020 HCI - E
-          </b-col>
-        </b-row>
+        <div>
+          Icons made by
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
+        <div>© 2020 HCI - E</div>
       </b-container>
     </footer>
   </div>
@@ -30,13 +32,16 @@
 
 <style>
 body {
-  background: #f8f9fa;
+  font-family: 'sen';
 }
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+footer {
+  background: url('~assets/wave.svg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
 }
 </style>
-

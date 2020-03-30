@@ -1,17 +1,31 @@
 /* eslint-disable no-console */
 <template>
   <b-container id="main-area">
-    <div v-show="!isStart" id="hero" class="text-center">
-      <img :src="require('~/assets/png/logo.png')" alt="logo" width="200" />
-      <h1>Tell the world, because you love the others.</h1>
-      <p>
-        Our project is an early detection for Coronavirus and share the positive
-        message from Corona's patient to the Twitter. We believe, a positive
-        message will give one positive energy to others
-      </p>
+    <div v-show="!isStart">
+      <b-container>
+        <b-row>
+          <b-col sm="12" lg="6">
+            <h1>Tell the world, because you love the others.</h1>
+            <p class="lead">
+              Our project is an early detection for Coronavirus and share the
+              positive message from Corona's patient to the Twitter. We believe,
+              a positive message will give one positive energy to others
+            </p>
 
-      <!-- <b-button variant="info">About us 🔍</b-button> -->
-      <b-button variant="outline-primary" @click="beginCheckUp">First, you need to do self check 🚀</b-button>
+            <b-button variant="outline-info" to="/about">About us 🔎</b-button>
+            <b-button variant="primary" @click="beginCheckUp"
+              >First let's do self check up 🚀</b-button
+            >
+          </b-col>
+          <b-col sm="12" lg="6">
+            <img
+              :src="require('~/assets/illustration/undraw_loving_it.svg')"
+              alt="illustration"
+              class="w-100"
+            />
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
     <CheckUp
       v-if="checkUp"
@@ -28,7 +42,11 @@
       :open-form-to-share="openFormToShare"
     />
 
-    <FormToShare v-else-if="formToShare" :check-up-score="checkUpScore" :back-to-home="backToHome" />
+    <FormToShare
+      v-else-if="formToShare"
+      :check-up-score="checkUpScore"
+      :back-to-home="backToHome"
+    />
   </b-container>
 </template>
 
@@ -100,6 +118,8 @@ export default {
       this.checkUp = false
       this.checkResult = false
       this.formToShare = false
+      this.progressValue = 0
+      this.currentQuestion = this.questions[0]
     },
     openFormToShare() {
       this.checkResult = false
