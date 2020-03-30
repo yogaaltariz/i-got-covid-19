@@ -42,7 +42,9 @@
           required
         ></b-form-textarea>
       </b-form-group>
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" :disabled="sendingTweet" variant="primary"
+        >Submit</b-button
+      >
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </b-card>
@@ -71,7 +73,12 @@ export default {
         country: '',
         location: null
       },
-      countries: []
+      countries: [],
+      data() {
+        return {
+          sendingTweet: false
+        }
+      }
     }
   },
   mounted() {
@@ -112,6 +119,7 @@ export default {
     },
     onSubmit(e) {
       e.preventDefault()
+      this.sendingTweet = true
       axios
         .post('/api/postTweet', { tweet: this.generateTweet() })
         .then((response) => {
@@ -128,6 +136,7 @@ export default {
             } else {
               this.backToHome()
             }
+            this.sendingTweet = false
           })
         })
     },
