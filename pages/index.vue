@@ -11,9 +11,7 @@
       </p>
 
       <!-- <b-button variant="info">About us 🔍</b-button> -->
-      <b-button variant="outline-primary" @click="beginCheckUp"
-        >First, you need to do self check 🚀</b-button
-      >
+      <b-button variant="outline-primary" @click="beginCheckUp">First, you need to do self check 🚀</b-button>
     </div>
     <CheckUp
       v-if="checkUp"
@@ -30,11 +28,7 @@
       :open-form-to-share="openFormToShare"
     />
 
-    <FormToShare
-      v-else-if="formToShare"
-      :check-up-score="checkUpScore"
-      :back-to-home="backToHome"
-    />
+    <FormToShare v-else-if="formToShare" :check-up-score="checkUpScore" :back-to-home="backToHome" />
   </b-container>
 </template>
 
