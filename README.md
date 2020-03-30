@@ -1,4 +1,4 @@
-# covid-19
+# i got covid-19
 
 > an app to tell the world someone got covid-19
 
